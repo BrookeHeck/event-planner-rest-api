@@ -1,0 +1,6 @@
+CREATE TABLE planner (
+ id BIGINT NOT NULL,
+ first_name VARCHAR(64) DEFAULT NULL,
+ last_name VARCHAR(64) DEFAULT NULL,
+ PRIMARY KEY(id)
+);
