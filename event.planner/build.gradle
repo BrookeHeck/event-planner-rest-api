@@ -24,7 +24,7 @@ dependencies {
 	implementation 'org.jooq:jooq-meta'
 	implementation 'org.jooq:jooq-codegen'
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'org.postgresql:postgresql'
+	jooqCodegen 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -35,8 +35,8 @@ jooq {
 		jdbc {
 			driver = "org.postgresql.Driver"
 			url = "jdbc:postgresql://localhost:5432/eventplanner"
-			user = "$System.env.dbUser"
-			password = "$System.env.dbPass"
+			user = "$System.env.username"
+			password = "$System.env.password"
 		}
 		generator {
 			database {
@@ -45,8 +45,8 @@ jooq {
 				inputSchema='public'
 			}
 			target {
-				packageName="com.heck.event.planner"
-				directory="\\\\wsl\$\\Ubuntu\\home\\bheck\\resume-projects\\event.planner\\event.planner\\src\\main\\java\\com\\heck\\event\\planner\\models\\entity"
+				packageName="jooq.generated"
+				directory="src/main/java/com/heck/event/planner"
 			}
 		}
 	}
